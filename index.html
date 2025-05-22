@@ -149,7 +149,7 @@
                 </div>
             </div>
             <div class="right-column">
-                <form name="subscribeForm" netlify onsubmit="handleSubmit(event)">
+                <form name="subscribeForm" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
                     <div class="input-group">
                         <input type="email" id="emailInput" name="email" placeholder="请输入邮箱" required>
                         <button type="submit">
