@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一周AI大事</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            position: relative; /* Add position relative for absolute positioning of rocket */
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            font-size: 4em; /* 调整字体大小 */
+            margin-bottom: 50px; /* 增加底部间距 */
+        }
+        .image-container {
+            margin-bottom: 20px; /* 添加底部间距 */
+            margin-left: -260px; /* 减少左侧间距 */
+        }
+        .image-container img {
+            width: 250px;
+            vertical-align: middle; /* 垂直居中对齐 */
+        }
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .left-column {
+            margin-right: 40px; /* 减少右边距以适应图片 */
+        }
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .input-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        input[type="email"] {
+            padding: 15px;
+            width: 400px; /* 确保输入框宽度合适 */
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-left: 10px; /* 添加左边距以适应图片 */
+            font-size: 16px;
+        }
+        button {
+            padding: 15px 30px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .rocket {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none; /* Ensure the rocket does not interfere with button clicks */
+        }
+        button:hover .rocket:not(.active) {
+            opacity: 1;
+            right: 0; /* Adjust as needed */
+        }
+        .rocket.active {
+            opacity: 1;
+            right: -100%; /* Move out to the right */
+            transition: all 1s ease-in-out;
+        }
+        .rocket img {
+            width: 100%;
+            height: auto;
+        }
+        .feedback-link {
+            font-size: 14px;
+            margin-right: 50px; /* 增加右侧间距 */
+        }
+        .feedback-link a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 18px; /* 增加字体大小 */
+        }
+        .feedback-link a:hover {
+            text-decoration: underline;
+        }
+        .description {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            text-align: left;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .contact-us {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 18px;
+            color: #007bff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .contact-us:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>一周AI大事</h1>
+        <div class="main-content">
+            <div class="left-column">
+                <div class="image-container">
+                    <img src="pic1.png" alt="小人指针">
+                </div>
+            </div>
+            <div class="right-column">
+                <form name="subscribeForm" netlify onsubmit="handleSubmit(event)">
+                    <div class="input-group">
+                        <input type="email" id="emailInput" name="email" placeholder="请输入邮箱" required>
+                        <button type="submit">
+                            开启体验
+                            <span class="rocket"><img src="button.png" alt="Rocket"></span>
+                        </button>
+                    </div>
+                </form>
+                <p class="description">提交完您的邮箱后，内容将每周以邮件的形式发送至您的邮箱。</p>
+                <div class="feedback-link">
+                    <a href="https://jsj.top/f/akr9OD">给我提意见</a>
+                    <span class="contact-us" onclick="showContactInfo()">联系我们</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleSubmit(event) {
+            const email = document.getElementById('emailInput').value;
+            alert('已收到您的邮箱，感谢您的订阅。'); // 显示提示信息
+
+            // 触发火箭发射动画
+            const rocketContainer = document.querySelector('.rocket');
+            rocketContainer.classList.add('active');
+
+            // 在动画完成后重置状态
+            setTimeout(() => {
+                rocketContainer.classList.remove('active');
+            }, 1000);
+
+            // 表单会继续提交，因为没有调用 event.preventDefault()
+        }
+
+        function showContactInfo() {
+            alert('微信：ILoveLLMNLP');
+        }
+    </script>
+</body>
+</html>
+
+
+
