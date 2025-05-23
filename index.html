@@ -151,7 +151,9 @@
             <div class="right-column">
                 <form name="subscribeForm" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
                     <div class="input-group">
-                        <input type="email" id="emailInput" name="email" placeholder="请输入邮箱" required>
+                        <label for="email">
+                            <input type="email" id="email" name="email" placeholder="请输入邮箱" required>
+                        </label>
                         <button type="submit">
                             开启体验
                             <span class="rocket"><img src="button.png" alt="Rocket"></span>
@@ -169,7 +171,7 @@
 
     <script>
         function handleSubmit(event) {
-            const email = document.getElementById('emailInput').value;
+            const email = document.getElementById('email').value;
             alert('已收到您的邮箱，感谢您的订阅。'); // 显示提示信息
 
             // 触发火箭发射动画
